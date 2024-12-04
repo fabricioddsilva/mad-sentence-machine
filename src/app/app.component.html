@@ -1,0 +1,115 @@
+<div class="vh-100 d-flex justify-content-center align-items-center">
+  <div class="card custom-card text-center shadow">
+    <div class="card-header">
+      <h5>Mad Sentence Machine</h5>
+    </div>
+    <div class="card-body">
+      @if(rateMenu == false && storyMenu == false){
+      <div class="row">
+        <div class="col-12">
+          <p>
+            We roll a random start and end of a sentence, and you have to make
+            chaotic history. Or you can rate random stories and see how crazy
+            people think.
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <button class="btn btn-primary" (click)="shuffleDeckSentences()">
+            Make a new Story
+          </button>
+        </div>
+        <div class="col-6">
+          <button class="btn btn-primary" (click)="getRandomStory()">
+            Rate a Random Story
+          </button>
+        </div>
+      </div>
+      } @else if (storyMenu == true){
+      <div class="row">
+        <div class="col-12">
+          <p #Text>
+            {{ start_sentence }} {{ player_sentence }} {{ end_sentence }}
+          </p>
+        </div>
+        <div class="col-10">
+          <input
+            #playerSentence
+            [disabled]="isDisabled"
+            type="text"
+            class="form-control"
+            placeholder="Complete the story...."
+            (input)="setPlayerSentence($event)"
+          />
+        </div>
+        <div class="col-2">
+          <button
+            class="btn btn-primary"
+            [disabled]="isDisabled"
+            (click)="disableButton(); submitStory(Text)"
+          >
+            Submit
+          </button>
+        </div>
+        <div class="col" style="margin-top: 10px">
+          <button
+            class="btn btn-primary"
+            (click)="
+              shuffleDeckSentences(); enableButton(); clearInput(playerSentence)
+            "
+          >
+            Shuffle Again
+          </button>
+        </div>
+      </div>
+      } @else if (rateMenu == true) {
+      <div class="row">
+        <div class="col-12">
+          <p>{{ randomStory.text }}</p>
+        </div>
+        <button
+          class="btn rate-button col"
+          [innerHTML]="buttonContent[0]"
+          (click)="insertRate(buttonContent[0], randomStory.id)"
+        ></button>
+        <button
+          class="btn rate-button col"
+          [innerHTML]="buttonContent[1]"
+          (click)="insertRate(buttonContent[1], randomStory.id)"
+        ></button>
+        <button
+          class="btn rate-button col"
+          [innerHTML]="buttonContent[2]"
+          (click)="insertRate(buttonContent[2], randomStory.id)"
+        ></button>
+        <button
+          class="btn rate-button col"
+          [innerHTML]="buttonContent[3]"
+          (click)="insertRate(buttonContent[3], randomStory.id)"
+        ></button>
+        <button
+          class="btn rate-button col"
+          [innerHTML]="buttonContent[4]"
+          (click)="insertRate(buttonContent[4], randomStory.id)"
+        ></button>
+      </div>
+      <div></div>
+      } @if (storyMenu == true || rateMenu == true){
+      <div class="row">
+        <div class="col-1">
+          <button
+            class="btn btn-secondary"
+            (click)="disableMenus()"
+            style="margin-top: 20px"
+          >
+            <i class="bi bi-arrow-left"></i>
+          </button>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</div>
+
+<router-outlet />
