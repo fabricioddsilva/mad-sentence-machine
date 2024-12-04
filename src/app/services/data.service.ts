@@ -3,18 +3,18 @@ import { Injectable } from '@angular/core';
 import { Story } from '../models/story.model';
 import { RandomStory } from '../models/randomStory.model';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
 
-  apiUrl = 'http://localhost:8080/api/stories'
 
   constructor(private http: HttpClient) { }
 
   insertStory(data: Story){
-    this.http.post(this.apiUrl, data)
+    this.http.post(environment.api, data)
       .subscribe(res => {
         console.log(res)
       },
@@ -26,13 +26,13 @@ export class DataService {
   }
 
   updateRate(rate: string, id: string){
-    this.http.patch(this.apiUrl + '/' + id, rate)
+    this.http.patch(environment.api + '/' + id, rate)
       .subscribe(res => {
         console.log(res)
       })
   }
 
   getStory(): Observable<RandomStory>{
-    return this.http.get<RandomStory>(this.apiUrl)
+    return this.http.get<RandomStory>(environment.api)
   }
 }
