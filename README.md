@@ -1,27 +1,22 @@
-# Joguinho
+# Mad Sentence Machine
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.0.
+# Sobre o Projeto
+Essa é uma aplicação academica feito para a disciplina de Inglês no Curso de ADS 5º Periodo na Faculdade SENAC Pernambuco.  
 
-## Development server
+Esse aplicativo consiste em um simples jogo onde são escolhidos aleatóriamente uma frase inicial e uma final, e você como jogador deve escrever uma história que encaixe nas duas frases.  
+Também é possível avaliar histórias já armazenadas.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Tecnologias Utilizadas
+- Java
+- Spring Boot
+- Maven
+- MongoDB
+- Angular 18
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+# Autor
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Fabrício Dias da Silva.  
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+https://www.linkedin.com/in/fabr%C3%ADcio-dias-860252247/
